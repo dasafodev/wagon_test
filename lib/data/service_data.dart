@@ -13,7 +13,7 @@ List<Service> allServices = [
     places: 10,
     state: ServiceState.active,
     route: Route.route1,
-    driver: User(id: '1', role: Role.driver),
+    driver: User(id: '1', role: Role.driver, name: 'John Doe'),
     vehicle: Vehicle(id: '1'),
   ),
   Service(
@@ -23,7 +23,7 @@ List<Service> allServices = [
     places: 10,
     state: ServiceState.finished,
     route: Route.route1,
-    driver: User(id: '2', role: Role.driver),
+    driver: User(id: '2', role: Role.driver, name: 'Jane Doe'),
     vehicle: Vehicle(id: '1'),
   ),
   Service(
@@ -33,7 +33,7 @@ List<Service> allServices = [
     places: 10,
     state: ServiceState.active,
     route: Route.route2,
-    driver: User(id: '1', role: Role.driver),
+    driver: User(id: '1', role: Role.driver, name: 'John Doe'),
     vehicle: Vehicle(id: '1'),
   ),
   Service(
@@ -43,7 +43,7 @@ List<Service> allServices = [
     places: 10,
     state: ServiceState.inactive,
     route: Route.route1,
-    driver: User(id: '2', role: Role.driver),
+    driver: User(id: '2', role: Role.driver, name: 'Jane Doe'),
     vehicle: Vehicle(id: '1'),
   ),
   Service(
@@ -53,7 +53,7 @@ List<Service> allServices = [
     places: 10,
     state: ServiceState.active,
     route: Route.route1,
-    driver: User(id: '1', role: Role.driver),
+    driver: User(id: '1', role: Role.driver, name: 'John Doe'),
     vehicle: Vehicle(id: '1'),
   ),
   Service(
@@ -63,7 +63,7 @@ List<Service> allServices = [
     places: 10,
     state: ServiceState.active,
     route: Route.route2,
-    driver: User(id: '2', role: Role.driver),
+    driver: User(id: '2', role: Role.driver, name: 'Jane Doe'),
     vehicle: Vehicle(id: '1'),
   ),
   Service(
@@ -73,7 +73,7 @@ List<Service> allServices = [
     places: 10,
     state: ServiceState.finished,
     route: Route.route1,
-    driver: User(id: '2', role: Role.driver),
+    driver: User(id: '2', role: Role.driver, name: 'Jane Doe'),
     vehicle: Vehicle(id: '1'),
   ),
   Service(
@@ -83,7 +83,7 @@ List<Service> allServices = [
     places: 10,
     state: ServiceState.finished,
     route: Route.route2,
-    driver: User(id: '1', role: Role.driver),
+    driver: User(id: '1', role: Role.driver, name: 'John Doe'),
     vehicle: Vehicle(id: '1'),
   ),
   Service(
@@ -93,7 +93,7 @@ List<Service> allServices = [
     places: 10,
     state: ServiceState.inactive,
     route: Route.route2,
-    driver: User(id: '1', role: Role.driver),
+    driver: User(id: '1', role: Role.driver, name: 'John Doe'),
     vehicle: Vehicle(id: '1'),
   )
 ];

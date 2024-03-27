@@ -4,14 +4,14 @@ import 'package:wagon/models/user.dart';
 import 'package:wagon/models/vehicle.dart';
 
 class Service {
-  String id;
-  DateTime hour;
-  DateTime waitingTime;
-  int places;
-  ServiceState state;
-  Route route;
-  User? driver;
-  Vehicle? vehicle;
+  final String id;
+  final DateTime hour;
+  final DateTime waitingTime;
+  final int places;
+  final ServiceState state;
+  final Route route;
+  final User? driver;
+  final Vehicle? vehicle;
 
   Service({
     required this.id,
@@ -23,4 +23,26 @@ class Service {
     this.driver,
     this.vehicle,
   });
+
+  Service copyWith({
+    String? id,
+    DateTime? hour,
+    DateTime? waitingTime,
+    int? places,
+    ServiceState? state,
+    Route? route,
+    User? driver,
+    Vehicle? vehicle,
+  }) {
+    return Service(
+      id: id ?? this.id,
+      hour: hour ?? this.hour,
+      waitingTime: waitingTime ?? this.waitingTime,
+      places: places ?? this.places,
+      state: state ?? this.state,
+      route: route ?? this.route,
+      driver: driver ?? this.driver,
+      vehicle: vehicle ?? this.vehicle,
+    );
+  }
 }

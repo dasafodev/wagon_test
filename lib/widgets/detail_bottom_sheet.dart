@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:wagon/enums/service_state.dart';
 import 'package:wagon/models/service.dart';
 import 'package:wagon/models/user.dart';
 import 'package:wagon/models/vehicle.dart';
@@ -7,6 +8,7 @@ import 'package:wagon/providers/services.dart';
 import 'package:wagon/providers/users.dart';
 import 'package:wagon/providers/vehicles.dart';
 import 'package:wagon/widgets/service_date.dart';
+import 'package:wagon/widgets/service_state_chip.dart';
 
 class DetailBottomSheet extends ConsumerWidget {
   const DetailBottomSheet({
@@ -27,8 +29,8 @@ class DetailBottomSheet extends ConsumerWidget {
         orElse: () => vehicles.first);
     User newDriver = drivers.firstWhere((e) => e.id == service?.driver?.id,
         orElse: () => drivers.first);
-
     DateTime newHour = service?.hour ?? DateTime.now();
+    ServiceState? serviceState = service?.state;
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -43,11 +45,11 @@ class DetailBottomSheet extends ConsumerWidget {
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               Spacer(),
-              Chip(
-                label: Text(service?.state.name ?? 'New'),
-                backgroundColor: service?.state.color,
-                shape:
-                    StadiumBorder(side: BorderSide(color: Colors.transparent)),
+              ServiceStateChip(
+                service: service,
+                onSelected: (ServiceState state) {
+                  serviceState = state;
+                },
               ),
             ],
           ),
@@ -96,6 +98,7 @@ class DetailBottomSheet extends ConsumerWidget {
                         vehicle: newVehicle,
                         driver: newDriver,
                         hour: newHour,
+                        state: serviceState,
                       ));
                 } else {
                   ref.read(servicesProvider.notifier).addService(

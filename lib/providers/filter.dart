@@ -1,7 +1,5 @@
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wagon/enums/filter.dart';
+import 'package:wagon/models/service_filter.dart';
 
-part 'filter.g.dart';
-
-@riverpod
-Filter filter(FilterRef ref) => Filter.all;
+final todoListFilter = StateProvider((_) => ServiceFilter(Filter.all, ''));
